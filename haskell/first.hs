@@ -1,16 +1,57 @@
 module Main where
 import System.Environment
-import System.IO
 
-fac :: Integer -> Integer
-fac n = if n == 0 then 1 else n * fac (n-1)
+sumer :: [Float] -> Float
+sumer [] = 0
+sumer (x:xs) = x + sum xs
 
-prompt = do
-    n <- getLine
-    return n
-
-main :: IO()
+main :: IO ()
 main = do
---    n <- prompt
-    args <- getArgs
-    putStrLn ("Hello, " ++ args !! 0)
+    line <- getLine
+    numbers <- getLine :: IO [Integer]
+    print $ numbers
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
