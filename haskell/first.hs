@@ -7,10 +7,7 @@ sumer (x:xs) = x + sum xs
 
 main :: IO ()
 main = do
-    line <- getLine
-    numbers <- getLine :: IO [Integer]
-    print $ numbers
-
+    putStrLn ("hello")
 
 
 
