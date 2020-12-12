@@ -98,4 +98,12 @@ isAsc2 [x] = True
 isAsc2 (x:y:xs) = 
     (x <= y) && isAsc2 (y:xs)
 
-
+hasPath :: [(Int, Int)] -> Int -> Int -> Bool
+hasPath [] a b = (a == b)
+hasPath xs x y
+  | x == y = True
+  | otherwise =
+      let xs' = [(n,m) | (n,m) <- xs, n /= x]
+       in or [ hasPath xs' m y | (n,m) <- xs, n == x]
+       
+-- hasPath [(1,2),(3,2),(4,3),(5,1)] 5 2
