@@ -1,3 +1,4 @@
+import Data.List
 -- tutorial 1
 
 sumer :: [Float] -> Float
@@ -78,5 +79,23 @@ elems2 :: (Eq a) => a -> [a] -> Bool
 elems2 _ [] = False
 elems2 a (x:xs) = (x == a) || elems2 a xs
 
-nub :: (Eq a) => [a] -> [a]
+nub2 :: (Eq a) => [a] -> [a]
+nub2 [] = []
+nub2 (x:xs)
+  | elems x xs = nub2 xs
+  | otherwise  = x : nub2 xs
+
+isAsc :: [Int] -> Bool
+isAsc [] = True
+isAsc (x:xs)
+  | length xs == 0 = True
+  | x < (head xs) = isAsc xs
+  | otherwise = False
+
+isAsc2 :: [Int] -> Bool
+isAsc2 [] = True
+isAsc2 [x] = True
+isAsc2 (x:y:xs) = 
+    (x <= y) && isAsc2 (y:xs)
+
 
