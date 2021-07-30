@@ -1,3 +1,5 @@
+import Data.List
+
 -- higher order functions
 app :: (a -> b) -> a -> b
 app f x = f x
@@ -35,3 +37,4 @@ filterr f (x:xs)
 *Main> filterr (\x -> mod x 2 == 0) [1,3,4,8]
 [4,8]
 -}
+

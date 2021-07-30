@@ -68,3 +68,9 @@ addTuples xs = [ x + y | (x,y) <- xs]
 *Main> addTuples [(1,3),(2,4),(3,4)]
 [4,6,7]
 -}
+
+evenss :: [Int] -> [Int]
+evenss [] = []
+evenss (x:xs)
+  | mod x 2 == 0 = x : evenss xs
+  | otherwise = evenss xs

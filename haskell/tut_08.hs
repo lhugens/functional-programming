@@ -40,6 +40,17 @@ map2D = map . map
 -- map2D f = (\xs -> map (\ys -> map f ys) xs)
 -- map2D f xs = map (\ys -> map f ys) xs
 
+mapp :: (a -> b) -> [a] -> [b]
+mapp _ [] = []
+mapp f (x:xs) = f x : mapp f xs
+
+map2 :: (a -> b) -> [[a]] -> [[b]]
+map2 = mapp . mapp
+
+map3 = (\f xs -> map (map f) xs)
+
+t1 = (\f x -> f x) (\y -> 3*y)
+t2 = (\x -> 2*x) . (\y -> 3*y)
 -- $ operator - for cleaner syntax
 --f xs = map (\x -> x+1) (filter (\x -> x>1) xs) 
 f xs = map (\x -> x+1) $ filter (\x -> x>1) xs
